@@ -10,14 +10,33 @@
 // Al termine della partita il software deve comunicare il punteggio,
 // cioè il numero di volte che l’utente ha inserito un numero consentito.
 var arrayPc = [];
+var utente = [];
+
+
+while (arrayPc.length < 16) {
+    var numR = arrayRandom(1, 100);
+    if (arrayPc.includes(numR) == false) {
+        arrayPc.push(numR);
+    }
+}
+
+console.log(arrayPc);
+
+while (utente.length < 5) {
+    var numU = parseInt(prompt('inserisci un numero da 1 e 100'))
+    if (utente.includes(numU) == false) {
+        utente.push(numU);
+    } else {
+        alert('non valido inserisci un altro numero')
+    }
+}
+
+console.log(utente);
+
+
+// funzione per generare numeri random
+
 
 function arrayRandom (min, max) {
     return Math.floor(Math.random () * (max - min +1) + min);
 }
-
-for (var i = 1; i <= 16; i++) {
-    var numero = arrayRandom (1, 100);
-    arrayPc.push(numero);
-}
-
-// console.log(arrayPc);
