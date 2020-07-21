@@ -9,9 +9,10 @@
 // possibile di numeri consentiti.
 // Al termine della partita il software deve comunicare il punteggio,
 // cioè il numero di volte che l’utente ha inserito un numero consentito.
-var arrayPc = [];
-var utente = [];
 
+//PC
+
+var arrayPc = [];
 
 while (arrayPc.length < 16) {
     var numR = arrayRandom(1, 100);
@@ -22,12 +23,26 @@ while (arrayPc.length < 16) {
 
 console.log(arrayPc);
 
-while (utente.length < 5) {
-    var numU = parseInt(prompt('inserisci un numero da 1 e 100'))
-    if (utente.includes(numU) == false) {
-        utente.push(numU);
+//UTENTE
+
+var utente = [];
+var massimo = 100;
+var inserito;
+var trovato = false;
+
+while (utente.length < 5 && trovato == false) {
+    inserito = parseInt(prompt('inserisci un numero da 1 e 100'));
+
+    while (inserito <= 0 || inserito > massimo) {
+        inserito = parseInt(prompt('attenzione numero fuori da range, inserisci un numero da 1 a 100'));
+    }
+    if (arrayPc.includes(inserito)) {
+        alert ('hai perso con punti ' + utente.length);
+        trovato = true;
+    } else if (utente.includes(inserito) == false) {
+        utente.push(inserito);
     } else {
-        alert('non valido inserisci un altro numero')
+        alert(inserito + 'numero già inserito, inserisci un altro numero')
     }
 }
 
