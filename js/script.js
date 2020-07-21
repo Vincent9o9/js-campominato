@@ -21,16 +21,17 @@ while (arrayPc.length < 16) {
     }
 }
 
-console.log(arrayPc);
+// console.log(arrayPc);
 
 //UTENTE
 
 var utente = [];
 var massimo = 100;
+var possibilità = massimo - arrayPc.length;
 var inserito;
 var trovato = false;
 
-while (utente.length < 5 && trovato == false) {
+while (utente.length < possibilità && trovato == false) {
     inserito = parseInt(prompt('inserisci un numero da 1 e 100'));
 
     while (inserito <= 0 || inserito > massimo) {
@@ -42,11 +43,11 @@ while (utente.length < 5 && trovato == false) {
     } else if (utente.includes(inserito) == false) {
         utente.push(inserito);
     } else {
-        alert(inserito + 'numero già inserito, inserisci un altro numero')
+        alert(inserito + 'numero già inserito, inserisci un altro numero');
     }
 }
 
-console.log(utente);
+// console.log(utente);
 
 
 // funzione per generare numeri random
